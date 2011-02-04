@@ -1,0 +1,57 @@
+<head>
+{% block head %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/common.css">
+<link id="style" rel="stylesheet" href="/static/css/{{style}}.css">
+<!-- Syntax Highlighter -->
+<link rel="stylesheet" href="/static/syntax/css/shCore.css">
+<link id="highlightstyle" rel="stylesheet" href="/static/syntax/css/{{highlightstyle}}.css">
+{% endblock css %}
+{% block javascript %}
+{% block loadjs %}
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
+<script src="/static/js/jquery.textarea.js"></script>
+<!-- Syntax Highlighter -->
+<script src="/static/syntax/js/shCore.js"></script>
+<script type="text/javascript" src="/static/syntax/js/shBrushJScript.js"></script>
+
+{% endblock loadjs %}
+
+<script>
+{% block innerjs %}
+{% endblock innerjs %}
+// $('body').css('background-color', "rgb(0, 0, 0)") nota bene
+$(function(){
+    $("textarea").tabby();
+    var style = $.cookie("style") || "light";
+    var hs = $.cookie("highlightstyle") || "shThemeDefault";
+    $("#style").attr("href", "/static/css/" + style + ".css");
+    $("#highlightstyle").attr("href", "/static/syntax/css/" + hs + ".css");
+    $("#switchstyle").click(function(){
+        var ss = $.cookie("style");
+        if (ss == "light"){
+            $.cookie("style", "dark");
+            $.cookie("highlightstyle", "shThemeRDark");
+        }
+        else{
+            $.cookie("style", "light");
+            $.cookie("highlightstyle", "shThemeDefault");
+        }
+        SyntaxHighlighter.all();
+    });
+    SyntaxHighlighter.all();
+})
+</script>
+
+{% endblock javascript %}
+{% endblock head %}
+
+{% block title %}
+  <title>Thodol</title>
+{% endblock title %}
+</head>
+<body>
+{% block body %}
+{% endblock body %}
+</body>

@@ -1,0 +1,20 @@
+body{
+    color: #DDD;
+    background-color: #1B2426;
+}
+textarea{
+    color: #DDD;
+    background-color: #1B2426;
+}
+a:link{
+    color: #FF0000;
+}
+a:visited{
+    color: #AA0000;
+}
+a:hover{
+    color: #00DD00;
+}
+a:active{
+    color: #00FF00;
+}
