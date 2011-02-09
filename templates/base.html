@@ -54,25 +54,34 @@ $(function(){
 {% endblock title %}
 </head>
 <body>
-    <div class="topright">
-        <ul>
-        {% block topright %}
-            <li><a href="/">Home</a>
-            {% if slug %}
-                <li><a href="/{{slug}}/history/">See page history</a>
-            {% endif %}
-        {% endblock %}
-        <li>&nbsp;<li>&nbsp;
-        {% if user.is_authenticated %}
-            <li><a href="/passchange/">Change password</a>
-            <li><a href="/logout/">Log out</a>
-        {% else %}
-            <li><a href="/login/">Log in</a>
+<div class="toolbar">
+    <ul>
+    {% block topright %}
+        <li><a href="/">Home</a>
+        {% if slug %}
+            <li><a href="/{{slug}}/history/">See page history</a>
         {% endif %}
-        </ul>
-    </div>
+    {% endblock %}
+    <li>&nbsp;<li>&nbsp;
+    {% if user.is_authenticated %}
+        <li><a href="/passchange/">Change password</a>
+        <li><a href="/logout/">Log out</a>
+    {% else %}
+        <li><a href="/login/">Log in</a>
+    {% endif %}
+    </ul>
+</div>
 <div class="content">
     {% block body %}
     {% endblock body %}
 </div>
+{% if user.is_authenticated %}
+    <div class="notification">
+        <a href="/notifications">
+            <strong class="{{notify}}">
+                ★
+            </strong>
+        </a>
+    </div>
+{% endif %}
 </body>

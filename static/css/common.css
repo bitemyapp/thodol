@@ -20,19 +20,27 @@ div.index a{
 div.index a:hover{ color: red; }
 
 div.content{
-    width: 1000px;
+    float: left;
+    width: 500px;
 }
-div.topright{
-    position: absolute;
+div.toolbar{
+    float: left;
+    margin: 0px 15px 0px -30px;
+    width: 200px;
+}
+div.notification{
     top: 0;
     right: 0;
-    margin-right: 5px;
-}
-div.topleft{
     position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 5px;
+}
+div.notification a:link{
+    text-decoration: none; 
+}
+div.notification a:visited{
+    text-decoration: none; 
+}
+div.notification a:active{
+    text-decoration: none;
 }
 textarea.edit{
     width: 700px;
@@ -50,4 +58,12 @@ pre{
     border-color: #6B6B6B;
     border-style: dashed;
     background-color: inherit;
+}
+.notifyactive{
+    font-size: 48px;
+    color: #ff5700;
+}
+.notifyinactive{
+    font-size: 48px;
+    color: #bbb;
 }
