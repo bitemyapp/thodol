@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_save, pre_save
-#import markdown
+import markdown
 
 def get_or_none(model, **kwargs):
     try:
@@ -18,7 +18,7 @@ class Page(models.Model):
     def __unicode__(self):
         return unicode(self.slug)
     def render_content(self):
-        return unicode(markdown(self.content))
+        return unicode(markdown.markdown(self.content))
 
 class Record(models.Model):
     name = models.CharField(max_length=200)
