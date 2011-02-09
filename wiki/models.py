@@ -3,13 +3,6 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_save, pre_save
 #import markdown
-from thodol.wiki.controllers import CodeBlockPreprocessor
-from markdown import Markdown
-
-md = Markdown()
-import ipdb; ipdb.set_trace()
-md.preprocessors.insert(0, CodeBlockPreprocessor())
-markdown = md.__str__
 
 def get_or_none(model, **kwargs):
     try:
