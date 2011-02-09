@@ -70,6 +70,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.contrib.messages.context_processors.messages",
     "thodol.context.notification",
+    "thodol.context.site_title",
 )
 
 INSTALLED_APPS = (
@@ -83,3 +84,6 @@ INSTALLED_APPS = (
     #'south', # maybe later
     'django_bcrypt',
 )
+
+#SITE_TITLE = "WOOT"
+SITE_TITLE = None

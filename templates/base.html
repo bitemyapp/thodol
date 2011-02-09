@@ -54,6 +54,7 @@ $(function(){
 {% endblock title %}
 </head>
 <body>
+<h1>{% if not site_title %}Thodol - Underworld Wiki{% else %}{{site_title}}{% endif %}</h1>
 <div class="toolbar">
     <ul>
     {% block topright %}
