@@ -12,10 +12,12 @@
 <script src="/static/js/jquery.min.js"></script>
 <script src="/static/js/jquery.cookie.js"></script>
 <script src="/static/js/jquery.textarea.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 <!-- Syntax Highlighter -->
 <script src="/static/syntax/js/shCore.js"></script>
 <script type="text/javascript" src="/static/syntax/js/shBrushJScript.js"></script>
-
 {% endblock loadjs %}
 
 <script>
@@ -48,10 +50,29 @@ $(function(){
 {% endblock head %}
 
 {% block title %}
-  <title>Thodol</title>
+    <title>Thodol</title>
 {% endblock title %}
 </head>
 <body>
-{% block body %}
-{% endblock body %}
+    <div class="topright">
+        <ul>
+        {% block topright %}
+            <li><a href="/">Home</a>
+            {% if slug %}
+                <li><a href="/{{slug}}/history/">See page history</a>
+            {% endif %}
+        {% endblock %}
+        <li>&nbsp;<li>&nbsp;
+        {% if user.is_authenticated %}
+            <li><a href="/passchange/">Change password</a>
+            <li><a href="/logout/">Log out</a>
+        {% else %}
+            <li><a href="/login/">Log in</a>
+        {% endif %}
+        </ul>
+    </div>
+<div class="content">
+    {% block body %}
+    {% endblock body %}
+</div>
 </body>

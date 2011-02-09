@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block topright %}
+    {{block.super}}
+    <li><a href="/{{slug}}/edit/">Edit this page</a>
+{% endblock topright %}
+
+{% block body %}
+{% if page %}
+    <h1>{{page.name}}</h1>
+    
+    {{page.render_content|safe}}
+{% else %}
+    <h1>{{deslug}}</h1>
+    <br>
+    This page doesn't exist yet, would you like to <a href="/{{slug}}/edit/">create</a> it?
+{% endif %}
+{% endblock body %}

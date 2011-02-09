@@ -1,12 +1,14 @@
 from django.conf.urls.defaults import *
 
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
     (r'^admin/', include(admin.site.urls)),
+    (r'login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
+    (r'logout/$', 'django.contrib.auth.views.logout'),
+    (r'passchange/$', 'django.contrib.auth.views.password_change', {'post_change_redirect': '/passdone/'}),
+    (r'passdone/$', 'django.contrib.auth.views.password_change_done'),
     (r'^', include('thodol.wiki.urls')),
 )
 

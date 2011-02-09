@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block topright %}
+    {{block.super}}
+    <li><a href="/{{slug}}/">View this page</a>
+{% endblock topright %}
+
+{% block body %}
+    <h1>You are {% if page %}editing{% else %}creating{% endif %}: "{{title}}"</h1>
+    <form action="" method="post" id="page_edit">
+        {% csrf_token %}
+        <textarea name="edit" class="edit" rows="24" columns="40">{% if page %}{{page.content}}{% endif %}</textarea>
+        <br>
+        <input type="submit" value="Save">
+    </form>
+{% endblock body %}

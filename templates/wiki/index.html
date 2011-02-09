@@ -1,29 +1,11 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <div class="topright">
-    <a id="switchstyle" href="">Switch styles</a>
-    </div>
-    <h1>Biiiiiiiitches</h1>
-    <h2>Yeeeaahhh</h2>
-    <h3>TESTING</h3>
-    <a href="/">Fuck yeah</a>
+    <h1>Thodol - Liberation from bad Wikis</h1>
+    Recent wiki pages:
     <br>
-    <a href='/YOUAINTNEVERBEENHERE'>You definitely haven't been here</a>
-    <br>
-    Cookie test: {{cookie_test}}
-    <br>
-    <pre class="brush: js">
-        /**
-         * SyntaxHighlighter
-         */
-        function foo()
-        {
-            if (counter <= 10)
-                return;
-            // it works!
-        }
-    </pre>
-    <br>
-    <textarea rows="24" cols="80" id="code"></textarea>
+    {% for page in pages %}
+        <a href="/{{page.slug}}/">{{page.name}}</a>
+        <br>
+    {% endfor %}
 {% endblock body %}

@@ -19,10 +19,8 @@ div.index a{
 }
 div.index a:hover{ color: red; }
 
-div.article{
-    margin: 50px 10px 50px 10px;
-    width: 600px;
-    text-align: justify;
+div.content{
+    width: 1000px;
 }
 div.topright{
     position: absolute;
@@ -30,10 +28,26 @@ div.topright{
     right: 0;
     margin-right: 5px;
 }
-
 div.topleft{
     position: absolute;
     top: 0;
     left: 0;
     margin-left: 5px;
+}
+textarea.edit{
+    width: 700px;
+}
+li{
+    list-style-type: none;
+}
+code{
+    font: Monaco, ProFont, "Bitstream Vera Sans Mono", "American Typewriter", "Andale Mono", monospace;
+    font-size: 0.91em;
+}
+pre{
+    color: #222;
+    border-width: 1px 0 1px 0;
+    border-color: #6B6B6B;
+    border-style: dashed;
+    background-color: inherit;
 }
