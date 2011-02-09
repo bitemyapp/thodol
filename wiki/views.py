@@ -4,13 +4,6 @@ from django.shortcuts import get_object_or_404
 from wiki.models import Page, get_or_none
 from django.contrib.auth.decorators import login_required
 
-"""
-style = request.COOKIES.get('style')
-highlightstyle = request.COOKIES.get('highlightstyle')
-if not highlightstyle:
-    highlightstyle = "shThemeRDark"
-# eldritch bullshit, don't ask.
-"""
 def index(request):
     pages = Page.objects.order_by('-last_changed')[:50]
     return direct_to_template(request, 'wiki/index.html', locals())
