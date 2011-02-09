@@ -26,6 +26,7 @@
 // $('body').css('background-color', "rgb(0, 0, 0)") nota bene
 $(function(){
     $("textarea").tabby();
+    $(".toggle div").hide();
     var style = $.cookie("style") || "light";
     var hs = $.cookie("highlightstyle") || "shThemeDefault";
     $("#style").attr("href", "/static/css/" + style + ".css");
@@ -43,6 +44,9 @@ $(function(){
         SyntaxHighlighter.all();
     });
     SyntaxHighlighter.all();
+    $(".toggle a").click(function(){
+        $(".toggle div").toggle();
+    });
 })
 </script>
 

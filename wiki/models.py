@@ -18,7 +18,7 @@ class Page(models.Model):
     def __unicode__(self):
         return unicode(self.slug)
     def render_content(self):
-        return unicode(markdown.markdown(self.content))
+        return unicode(markdown.markdown(self.content, ['fenced_code']))
 
 class Record(models.Model):
     name = models.CharField(max_length=200)
